@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Senior Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Portfolio</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image-wrapper">
+                    <img id="profileImage" src="https://via.placeholder.com/200" alt="Profile" class="profile-image">
+                    <button class="edit-btn" onclick="document.getElementById('imageUpload').click()">📷 Upload Photo</button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                </div>
+                <div class="hero-text">
+                    <h1 id="fullName">Your Name</h1>
+                    <p id="jobTitle" class="job-title">Senior Full-Stack Developer</p>
+                    <p id="description" class="description">Passionate developer solving problems with code</p>
+                    <div class="social-links">
+                        <a id="githubLink" href="#" target="_blank" class="social-btn github">GitHub</a>
+                        <a id="linkedinLink" href="#" target="_blank" class="social-btn linkedin">LinkedIn</a>
+                        <a id="emailLink" href="#" class="social-btn email">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="certifications">
+                    <h3>Certifications</h3>
+                    <ul id="certList"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid" id="skillsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator">
+        <div class="container">
+            <h2>Quick Calculator Tool</h2>
+            <div class="calc-wrapper">
+                <div class="calc-container">
+                    <input type="text" id="calcDisplay" class="calc-display" readonly value="0">
+                    <div class="calc-buttons">
+                        <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
+                        <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
+                        <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('/')">/</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
+                        <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
+                        <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('*')">*</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
+                        <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
+                        <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
+                        
+                        <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
+                        <button class="calc-btn" onclick="appendToDisplay('.')">.</button>
+                        <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
+                        <button class="calc-btn equals" onclick="calculateResult()">=</button>
+                        
+                        <button class="calc-btn clear" onclick="clearDisplay()" style="grid-column: 1 / 5;">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>Interested in hiring or collaboration? Let's talk!</p>
+                <a id="contactEmail" href="mailto:your@email.com" class="cta-btn">Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Your Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div class="chatbot-header">
+            <span>💬 Assistant</span>
+            <button class="chatbot-toggle" onclick="toggleChatbot()">−</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Ask me something..." onkeypress="handleChatInput(event)">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

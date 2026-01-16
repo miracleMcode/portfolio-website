@@ -156,6 +156,6 @@ def manage_projects():
 def serve_image(filename):
     return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-# For local development
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+# Vercel serverless function requires app to be exported at module level
+# DO NOT add if __name__ == '__main__' block in serverless functions
+
